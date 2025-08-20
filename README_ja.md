@@ -125,7 +125,7 @@ UA.NETStandardのアセンブリには有効な署名がされていますが、
    クライアント証明書が必要であれば、`pki/own/certs`内の証明書を使用します。
 
 ## 例示スクリプトの使用手順
-例示スクリプト(`examples/ExampleReadWrite.ps1`)は、PwshOpcUaClientを使用してSysmac Studioのシミュレータ用OPC UAサーバまたは、コントローラのOPC UAサーバに接続して値の読み書きをします。
+例示スクリプト(`examples/ExampleReadWriteVariables.ps1`)は、PwshOpcUaClientを使用してSysmac Studioのシミュレータ用OPC UAサーバまたは、コントローラのOPC UAサーバに接続して値の読み書きをします。
 動作を確認した環境は、以下です。
 
 | Item          | Version     |
@@ -144,7 +144,7 @@ Sysmac Studio Ver.1.62以降に付属しているシミュレータ用OPC UAサ�
 
 1. **PwshOpcUaClientの`setup.ps1`を実行する**
 
-2. **Sysmac Stuidoで例示プロジェクト(`examples/ExampleReadWrite.smc2`)を開きシミュレータを起動**
+2. **Sysmac Stuidoで例示プロジェクト(`examples/ExampleReadWriteVariables.smc2`)を開きシミュレータを起動**
 
 3. **シミュレータ用OPC UAサーバの起動と設定**   
    以下のように操作してOPC UAサーバを起動し設定します。
@@ -154,7 +154,7 @@ Sysmac Studio Ver.1.62以降に付属しているシミュレータ用OPC UAサ�
    OPC UAサーバが起動した状態で以下をPowerShellで実行します。
 
    ```powershell
-   ./ExampleVariableReadWrite.ps1 -Interval 0.01
+   ./ExampleReadWriteVariables.ps1 -Interval 0.01
    ```
 
    OPC UAサーバに接続すると以下のように値の読み書きを繰り返します。
@@ -171,7 +171,7 @@ Sysmac Studio Ver.1.62以降に付属しているシミュレータ用OPC UAサ�
 
 1. **PwshOpcUaClientの`setup.ps1`を実行する**
 
-2. **Sysmac Stuidoで例示プロジェクト(`examples/ExampleReadWrite.smc2`)を開き構成を使用環境に合わせる**
+2. **Sysmac Stuidoで例示プロジェクト(`examples/ExampleReadWriteVariables.smc2`)を開き構成を使用環境に合わせる**
 
 3. **コントローラのOPC UAサーバの設定**   
    Sysmac Studioでコントローラに接続し、以下のように操作してOPC UAサーバを設定します。
@@ -182,7 +182,7 @@ Sysmac Studio Ver.1.62以降に付属しているシミュレータ用OPC UAサ�
    以下の`YOUR_DEVICE_ADDR`をコントローラのアドレスに置き換え、PowerShellで実行します。
 
    ```powershell
-   ./ExampleVariableReadWrite.ps1 -UseSimulator $false -ServerUrl YOUR_DEVICE_ADDR -Interval 0.01
+   ./ExampleReadWriteVariables.ps1 -UseSimulator $false -ServerUrl YOUR_DEVICE_ADDR -Interval 0.01
    ```
 
    OPC UAサーバに接続すると以下のように値の読み書きを繰り返します。

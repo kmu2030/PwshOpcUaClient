@@ -105,7 +105,7 @@ which will prevent them from being rejected in future connections.
   * **If the server rejects a client certificate**: Follow the server's procedure for trusting certificates. The required client certificate will be located in **`pki/own/certs`**.
 
 ## Using the Example Scripts
-The example script, **`examples/ExampleReadWrite.ps1`**, connects to an OPC UA server (either Sysmac Studio's simulator or a physical controller) to read and write values.
+The example script, **`examples/ExampleReadWriteVariables.ps1`**, connects to an OPC UA server (either Sysmac Studio's simulator or a physical controller) to read and write values.
 The tested environment is:
 
 | Item | Version |
@@ -121,7 +121,7 @@ This guide covers connecting to the OPC UA server included with Sysmac Studio Ve
 For more details, refer to the [manual](https://www.google.com/search?q=https://www.fa.omron.co.jp/data_pdf/mnu/sbcd-374p_nj501_nx.pdf%3Fid%3D3705).
 
 1. **Run `setup.ps1` inside the PwshOpcUaClient folder.**
-2. **Open the example project (`examples/ExampleReadWrite.smc2`) in Sysmac Studio and start the simulator.**
+2. **Open the example project (`examples/ExampleReadWriteVariables.smc2`) in Sysmac Studio and start the simulator.**
 3. **Start and configure the simulator's OPC UA server.**   
    Follow the steps shown in the GIF to start the server and configure its settings.
 
@@ -131,7 +131,7 @@ For more details, refer to the [manual](https://www.google.com/search?q=https://
    With the OPC UA server running, execute the following command in PowerShell:
 
    ```powershell
-   ./ExampleVariableReadWrite.ps1 -Interval 0.01
+   ./ExampleReadWriteVariables.ps1 -Interval 0.01
    ```
 
    The script will repeatedly read and write values.
@@ -144,7 +144,7 @@ This guide covers connecting to a physical controller's OPC UA server.
 For more information, see the [manual](https://www.google.com/search?q=https://www.fa.omron.co.jp/data_pdf/mnu/sbcd-374p_nj501_nx.pdf%3Fid%3D3705).
 
 1. **Run `setup.ps1` inside the PwshOpcUaClient folder.**
-2. **Open the example project (`examples/ExampleReadWrite.smc2`) in Sysmac Studio and adjust the configuration to match your controller.**
+2. **Open the example project (`examples/ExampleReadWriteVariables.smc2`) in Sysmac Studio and adjust the configuration to match your controller.**
 3. **Configure the controller's OPC UA server.**   
    Connect to the controller with Sysmac Studio and configure the server as shown in the GIF.
    After setting up security, you may need to attempt an initial connection to trigger the server to reject the client's certificate,
@@ -156,7 +156,7 @@ For more information, see the [manual](https://www.google.com/search?q=https://w
    Replace `YOUR_DEVICE_ADDR` with your controller's IP address and execute the command in PowerShell:
 
    ```powershell
-   ./ExampleVariableReadWrite.ps1 -UseSimulator $false -ServerUrl YOUR_DEVICE_ADDR -Interval 0.01
+   ./ExampleReadWriteVariables.ps1 -UseSimulator $false -ServerUrl YOUR_DEVICE_ADDR -Interval 0.01
    ```
 
    The script will begin repeatedly reading and writing values. Unlike the simulator, the controller's program operates at a fixed cycle, so value discrepancies are unlikely.
