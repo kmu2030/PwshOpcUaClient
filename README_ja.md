@@ -2,6 +2,7 @@
 PwshOpcUaClientは、OPC Foundationの[UA.NETStandard](https://github.com/OPCFoundation/UA-.NETStandard)を使用したPowerShell用のOPC UAクライアントです。
 PwshOpcUaClientは、スクリプトを配置したディレクトリで完結、かつ、インスタントに使えるOPC UAクライアントです。
 OPC UAサーバの動作確認や軽微なモニタリング、OPC UAクライアントモックの作成に適しています。
+["PowerShellでOPC UAクライアントを作る"](https://zenn.dev/kitam/articles/143188e5f53d03)に幾らか付加的な情報があります。
 
 ## 使用環境
 PwshOpcUaClientの使用には、以下が必要です。
