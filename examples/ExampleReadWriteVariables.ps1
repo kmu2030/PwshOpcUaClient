@@ -205,13 +205,16 @@ class OpcUaFetchException : System.Exception {
     }
 }
 
-function ValidateResponse($Response,
-                          $Results,
-                          $DiagnosticInfos,
-                          $Requests,
-                          $ExceptionMessage)
-{
-    if (($results
+function ValidateResponse {
+    param(
+        $Response,
+        $Result,
+        $DiagnosticInfos,
+        $Requests,
+        $ExceptionMessage
+    )
+
+    if (($Results
             | Where-Object { $_ -is [StatusCode]}
             | ForEach-Object { [ServiceResult]::IsNotGood($_) }
         ) -contains $true `
