@@ -92,7 +92,7 @@ PowerShell  : PowerShell 7.5以降
 
 using namespace Opc.Ua
 param(
-    [bool]$UserSimulator = $true,
+    [bool]$UseSimulator = $true,
     [string]$ServerUrl = 'opc.tcp://localhost:4840',
     [bool]$UseSecurity = $true,
     [string]$UserName = 'taker',
@@ -115,7 +115,7 @@ function Main () {
         $client = New-PwshOpcUaClient @clientParam
 
         # The namespace is different between the simulator and the controller.
-        $ns = $UserSimulator ? '2' : '4';
+        $ns = $UseSimulator ? '2' : '4';
 
         # Define write values.
         $writeValues = New-Object WriteValueCollection
@@ -149,12 +149,12 @@ function Main () {
                 [ref]$results,
                 [ref]$diagnosticInfos
             )
-            if ($null -ne ($exception = ValidateResponse(
-                                            $response,
-                                            $results,
-                                            $diagnosticInfos,
-                                            $_writeValues,
-                                            'Failed to write.'))
+            if ($null -ne ($exception = ValidateResponse `
+                                            $response `
+                                            $results `
+                                            $diagnosticInfos `
+                                            $_writeValues `
+                                            'Failed to write.')
             ) {
                 throw $exception
             }
@@ -170,12 +170,12 @@ function Main () {
                 [ref]$results,
                 [ref]$diagnosticInfos
             )
-            if ($null -ne ($exception = ValidateResponse(
-                                            $response,
-                                            $results,
-                                            $diagnosticInfos,
-                                            $readValues,
-                                            'Failed to read.'))
+            if ($null -ne ($exception = ValidateResponse `
+                                            $response `
+                                            $results `
+                                            $diagnosticInfos `
+                                            $readValues `
+                                            'Failed to read.')
             ) {
                 throw $exception
             }
@@ -208,7 +208,7 @@ class OpcUaFetchException : System.Exception {
 function ValidateResponse {
     param(
         $Response,
-        $Result,
+        $Results,
         $DiagnosticInfos,
         $Requests,
         $ExceptionMessage
