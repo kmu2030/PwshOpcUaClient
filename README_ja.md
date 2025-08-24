@@ -190,5 +190,5 @@ Sysmac Studio Ver.1.62以降に付属しているシミュレータ用OPC UAサ�
    ![コントローラのOPC UAサーバと値の読み書き](./images/controller-run-prg.gif)
 
 ## ライセンスについて
-UA.NETStandardを直接に使用するPwshOpcUaClientの構成物はGPLv2ライセンスです。
+UA.NETStandardを使用するPwshOpcUaClientの構成物及び例示はGPLv2ライセンスです。
 その他は、MITライセンスです。

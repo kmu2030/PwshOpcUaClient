@@ -164,5 +164,5 @@ For more information, see the [manual](https://www.google.com/search?q=https://w
    ![Read and write to the controller's OPC UA server](./images/controller-run-prg.gif)
 
 ## License
-The components of PwshOpcUaClient that directly use UA.NETStandard are licensed under **GPLv2**.
+The components and examples of PwshOpcUaClient that directly use UA.NETStandard are licensed under **GPLv2**.
 All other components are licensed under the **MIT License**.
