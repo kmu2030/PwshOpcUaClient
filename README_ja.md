@@ -1,5 +1,5 @@
 # PwshOpcUaClient
-PwshOpcUaClientは、OPC Foundationの[UA.NETStandard](https://github.com/OPCFoundation/UA-.NETStandard)を使用したPowerShell用のOPC UAクライアントです。
+PwshOpcUaClientは、OPC Foundationの[UA-.NETStandard](https://github.com/OPCFoundation/UA-.NETStandard)を使用したPowerShell用のOPC UAクライアントです。
 PwshOpcUaClientは、スクリプトを配置したディレクトリで完結、かつ、インスタントに使えるOPC UAクライアントです。
 OPC UAサーバの動作確認や軽微なモニタリング、OPC UAクライアントモックの作成に適しています。
 ["PowerShellでOPC UAクライアントを作る"](https://zenn.dev/kitam/articles/143188e5f53d03)に幾らか付加的な情報があります。
@@ -11,7 +11,7 @@ PwshOpcUaClientの使用には、以下が必要です。
 | :------------ | :---------- |
 | PowerShell   | 7以降    |
 
-UA.NETStandardのパッケージは、`setup.ps1`で確認できます。
+UA-.NETStandardのパッケージは、`setup.ps1`で確認できます。
 
 ## 構築環境
 PwshOpcUaClientは、以下の環境で構築しています。
@@ -38,8 +38,8 @@ PwshOpcUaClientは、以下で構成します。
 
 PwshOpcUaClientは、これらが同一ディレクトリにあるとき正常に動作します。
 PwshOpcUaClientのデフォルトクライアントは、構成ファイル間の相対位置が正しければ実行時のロケーションは任意です。
-デフォルトクライアントが使用するパスはPwshOpcUAのディレクトリ下に配置します。
-また、UA.NETStandardのアセンブリもPwshOpcUaClientのディレクトリ下に配置します。
+デフォルトクライアントが使用するパスはPwshOpcUaClientのディレクトリ下に配置します。
+また、UA-.NETStandardのアセンブリもPwshOpcUaClientのディレクトリ下に配置します。
 
 PwshOpcUaClientのデフォルトクライアントのディレクトリ構造は以下です。
 
@@ -71,7 +71,7 @@ root
 ```
 
 * **libs**   
-   UA.NETStandardのアセンブリを配置します。
+   UA-.NETStandardのアセンブリを配置します。
    LoadAssembly.ps1は、Nugetで取得したディレクトリ構造に対して読み込み処理を実行します。
 * **logs**   
    ログを格納します。
@@ -96,7 +96,7 @@ root
 * **pki/trusted/certs**   
    信頼する証明書を配置します。
 
-これらの構造の詳細は、UA.NETStandardに依存します。
+これらの構造の詳細は、UA-.NETStandardに依存します。
 CRLは、各ストアの`crl`という名称のサブディレクトリに配置するようです。
 WindowsではX509Storeをサポートしているので、必要であれば使用できます。
 詳細は[ドキュメント](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/Docs/Certificates.md)を確認してください。
@@ -108,11 +108,11 @@ PwshOpcUaClientは、以下の手順で使用します。
 2. **`setup.ps1`を実行**
 3. **PwshOpcUaClientを使用するスクリプトで`PwshOpcUaClient.ps1`をドットソースで読み込む**
 
-PwshOpcUaClientが必要とする証明書とディレクトリは、UA.NETStandardによって適時作成されます。
+PwshOpcUaClientが必要とする証明書とディレクトリは、UA-.NETStandardによって適時作成されます。
 使用する証明書を指定する場合、`PwshOpcUaClient.ps1`を証明書の内容に合わせて修正するか、構成ファイル(\*.Config.xml)を配置し、PwshOpcUaClientを構成ファイルで構築します。
-構成ファイルについてのドキュメントは見当たらないのでUA.NETStandardのサンプルコードやライブラリのコードを確認します。
+構成ファイルについてのドキュメントは見当たらないのでUA-.NETStandardのサンプルコードやライブラリのコードを確認します。
 
-UA.NETStandardのアセンブリには有効な署名がされていますが、実行できない場合、PowerShellの実行ポリシーを確認します。
+UA-.NETStandardのアセンブリには有効な署名がされていますが、実行できない場合、PowerShellの実行ポリシーを確認します。
 
 サーバとのセッション確立時や、メッセージ交換に署名または、署名と暗号化を使用するとサーバ、クライアントそれぞれが証明書を拒否する可能性があります。
 いずれも拒否した証明書を信頼することで、次回の接続から拒否しなくなります。
@@ -190,5 +190,5 @@ Sysmac Studio Ver.1.62以降に付属しているシミュレータ用OPC UAサ�
    ![コントローラのOPC UAサーバと値の読み書き](./images/controller-run-prg.gif)
 
 ## ライセンスについて
-UA.NETStandardを使用するPwshOpcUaClientの構成物及び例示はGPLv2ライセンスです。
+UA-.NETStandardを使用するPwshOpcUaClientの構成物及び例示はGPLv2ライセンスです。
 その他は、MITライセンスです。

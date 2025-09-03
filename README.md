@@ -1,5 +1,5 @@
 # PwshOpcUaClient
-**PwshOpcUaClient** is an OPC UA client for **PowerShell** that uses the OPC Foundation's **UA.NETStandard** library.
+**PwshOpcUaClient** is an OPC UA client for **PowerShell** that uses the OPC Foundation's [**UA-.NETStandard**](https://github.com/OPCFoundation/UA-.NETStandard) library.
 It's designed to be a self-contained, instant-use OPC UA client that runs directly from its own directory.
 This tool is ideal for verifying OPC UA server operations, performing basic monitoring, and creating mock OPC UA clients.
 There's some additional information in the Japanese article, **"PowerShellでOPC UAクライアントを作る"**, available at [https://zenn.dev/kitam/articles/143188e5f53d03](https://zenn.dev/kitam/articles/143188e5f53d03).
@@ -11,7 +11,7 @@ To use PwshOpcUaClient, you need the following:
 |:---|:---|
 | PowerShell | 7 or later |
 
-The specific UA.NETStandard packages required can be found in the **`setup.ps1`** script.
+The specific UA-.NETStandard packages required can be found in the **`setup.ps1`** script.
 
 ## Development Environment
 PwshOpcUaClient is tested in the following environment:
@@ -35,7 +35,7 @@ PwshOpcUaClient consists of the following files, which must be in the same direc
 
 The default client's directory structure is designed for relative paths,
 so you can run it from any location as long as the relative file paths are maintained.
-The paths used by the default client are located under the PwshOpcUaClient directory, including the UA.NETStandard assemblies.
+The paths used by the default client are located under the PwshOpcUaClient directory, including the UA-.NETStandard assemblies.
 
 Below is the default directory structure for PwshOpcUaClient:
 
@@ -66,7 +66,7 @@ root
         └── certs
 ```
 
-* **`libs`**: Stores the UA.NETStandard assemblies.
+* **`libs`**: Stores the UA-.NETStandard assemblies.
 * **`logs`**: Stores log files.
 * **`pki`**: This is where certificates and related files are stored. The specific subdirectories handle different types of certificates:
 * **`pki/issuer/certs`**: For issuer certificates.   
@@ -79,10 +79,10 @@ root
 * **`pki/rejected/certs`**: Stores rejected server certificates.
 * **`pki/trusted/certs`**: Stores trusted certificates.
 
-The specifics of this structure depend on the **UA.NETStandard** library.
+The specifics of this structure depend on the **UA-.NETStandard** library.
 CRLs (Certificate Revocation Lists) should be placed in a subdirectory named **`crl`** within each store.
 Windows also supports `X509Store` if you need it.
-For more details, refer to the [UA.NETStandard documentation](https://www.google.com/search?q=https://github.com/OPCFoundation/UA-.NETStandard/blob/master/Docs/Certificates.md).
+For more details, refer to the [UA-.NETStandard documentation](https://www.google.com/search?q=https://github.com/OPCFoundation/UA-.NETStandard/blob/master/Docs/Certificates.md).
 
 ## How to Use PwshOpcUaClient
 Follow these steps to get started:
@@ -91,10 +91,10 @@ Follow these steps to get started:
 2. **Run `setup.ps1`**.
 3. **Dot-source `PwshOpcUaClient.ps1`** in your script to load the functions.
 
-UA.NETStandard will automatically create any necessary certificates and directories.
+UA-.NETStandard will automatically create any necessary certificates and directories.
 If you need to specify a particular certificate, you can modify `PwshOpcUaClient.ps1` or use a configuration file (`*.Config.xml`).
 
-If the UA.NETStandard assemblies, which are validly signed, fail to run, check your **PowerShell execution policy**.
+If the UA-.NETStandard assemblies, which are validly signed, fail to run, check your **PowerShell execution policy**.
 
 When you establish a session or use signing/encryption for message exchange,
 both the server and the client may reject certificates.
@@ -164,5 +164,5 @@ For more information, see the [manual](https://www.google.com/search?q=https://w
    ![Read and write to the controller's OPC UA server](./images/controller-run-prg.gif)
 
 ## License
-The components and examples of PwshOpcUaClient that directly use UA.NETStandard are licensed under **GPLv2**.
+The components and examples of PwshOpcUaClient that directly use UA-.NETStandard are licensed under **GPLv2**.
 All other components are licensed under the **MIT License**.
